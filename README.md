@@ -5,6 +5,7 @@
 You can find the final results in the [final_results.ipynb](final_results.ipynb) notebook.
 
 # TOC
+
 <!-- TOC -->
 * [Attack on GPT3.5 model and fine-tuning on harmful prompts](#attack-on-gpt35-model-and-fine-tuning-on-harmful-prompts)
 * [Result](#result)
@@ -30,20 +31,33 @@ You can find the final results in the [final_results.ipynb](final_results.ipynb)
 <!-- TOC -->
 
 # DISCLAIMER
-This repository contains a scientific paper focused on the exploration of vulnerabilities and exploitation techniques related to Large Language Models (LLMs). The content herein includes detailed descriptions, examples, and discussions of potentially harmful techniques and methodologies.
+
+This repository contains a scientific paper focused on the exploration of vulnerabilities and exploitation techniques
+related to Large Language Models (LLMs). The content herein includes detailed descriptions, examples, and discussions of
+potentially harmful techniques and methodologies.
 
 ## Important Notices
-**For Research Purposes Only:** The information provided in this repository is intended solely for academic research and educational purposes. The goal is to enhance the understanding of LLM vulnerabilities and to promote the development of more secure AI systems.
 
-**Do Not Misuse the Information:** The techniques and methodologies described in this paper should not be used for any malicious or unethical activities. Misuse of this information can lead to serious legal consequences and ethical breaches.
+**For Research Purposes Only:** The information provided in this repository is intended solely for academic research and
+educational purposes. The goal is to enhance the understanding of LLM vulnerabilities and to promote the development of
+more secure AI systems.
 
-**Harmful Content Warning:** Due to the nature of the research, this repository contains content that could be harmful if misused. Users are strongly advised to proceed with caution and to consider the ethical implications of their actions.
+**Do Not Misuse the Information:** The techniques and methodologies described in this paper should not be used for any
+malicious or unethical activities. Misuse of this information can lead to serious legal consequences and ethical
+breaches.
 
-**Legal Compliance:** It is the responsibility of the user to ensure compliance with all applicable local, national, and international laws and regulations when using the information provided in this repository.
+**Harmful Content Warning:** Due to the nature of the research, this repository contains content that could be harmful
+if misused. Users are strongly advised to proceed with caution and to consider the ethical implications of their
+actions.
 
-**No Liability:** The authors of the paper and contributors to this repository disclaim any liability for any direct, indirect, incidental, or consequential damages resulting from the use or misuse of the information provided.
+**Legal Compliance:** It is the responsibility of the user to ensure compliance with all applicable local, national, and
+international laws and regulations when using the information provided in this repository.
 
-By accessing and using the contents of this repository, you acknowledge that you have read, understood, and agree to adhere to this disclaimer.
+**No Liability:** The authors of the paper and contributors to this repository disclaim any liability for any direct,
+indirect, incidental, or consequential damages resulting from the use or misuse of the information provided.
+
+By accessing and using the contents of this repository, you acknowledge that you have read, understood, and agree to
+adhere to this disclaimer.
 
 # Repository structure
 
@@ -111,10 +125,10 @@ By accessing and using the contents of this repository, you acknowledge that you
 |--------------------------------|---------------------|---------------------|-----------|
 | `dolphin-2-5-mixtral-8x7b-pjx` | Dataset preparation | Inference Endpoints | 24.27     |
 | `gpt-3.5-turbo-1106`           | Fine tuning         | OpenAI API          | 2.67      |
-| `gpt-3.5-turbo-1106`           | Evaluation          | OpenAI API          | 0.04      |
-| `meta-llama-guard-2-8b-ooa`    | Evaluation          | Inference Endpoints | 1.03      |
+| `gpt-3.5-turbo-1106`           | Evaluation          | OpenAI API          | 0.96      |
+| `meta-llama-guard-2-8b-ooa`    | Evaluation          | Inference Endpoints | 2.50      |
 
-**Total: $28.01**
+**Total: $30.04**
 
 # Research papers
 
