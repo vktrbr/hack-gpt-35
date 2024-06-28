@@ -1,7 +1,14 @@
 # Attack on GPT3.5 model and fine-tuning on harmful prompts
 
+# Result
+
+You can find the final results in the [final_results.ipynb](final_results.ipynb) notebook.
+
+# TOC
 <!-- TOC -->
 * [Attack on GPT3.5 model and fine-tuning on harmful prompts](#attack-on-gpt35-model-and-fine-tuning-on-harmful-prompts)
+* [Result](#result)
+* [TOC](#toc)
 * [Repository structure](#repository-structure)
 * [Work steps](#work-steps)
 * [Spendings](#spendings)
