@@ -1,31 +1,28 @@
 # Attack on GPT3.5 model and fine-tuning on harmful prompts
 
 <!-- TOC -->
-
 * [Attack on GPT3.5 model and fine-tuning on harmful prompts](#attack-on-gpt35-model-and-fine-tuning-on-harmful-prompts)
 * [Repository structure](#repository-structure)
 * [Work steps](#work-steps)
+* [Spendings](#spendings)
 * [Research papers](#research-papers)
-    * [1. ObscurePrompt: Jailbreaking Large Language Models via Obscure Input](#1-obscureprompt--jailbreaking-large-language-models-via-obscure-input)
-        * [Overview](#overview)
-        * [Examples](#examples)
-        * [Techniques](#techniques)
-    * [2. Unveiling ChatBug: Format Mismatch and Message Overflow Attacks on Instruction-Tuned LLMs](#2-unveiling-chatbug--format-mismatch-and-message-overflow-attacks-on-instruction-tuned-llms)
-        * [Overview](#overview-1)
-        * [Examples](#examples-1)
-        * [Techniques](#techniques-1)
-    * [3. Removing RLHF Protections in GPT-4 via Fine-Tuning](#3-removing-rlhf-protections-in-gpt-4-via-fine-tuning)
-        * [Overview](#overview-2)
-        * [Techniques](#techniques-2)
-        * [Evaluation](#evaluation)
-
+  * [1. ObscurePrompt: Jailbreaking Large Language Models via Obscure Input](#1-obscureprompt--jailbreaking-large-language-models-via-obscure-input)
+    * [Overview](#overview)
+    * [Examples](#examples)
+    * [Techniques](#techniques)
+  * [2. Unveiling ChatBug: Format Mismatch and Message Overflow Attacks on Instruction-Tuned LLMs](#2-unveiling-chatbug--format-mismatch-and-message-overflow-attacks-on-instruction-tuned-llms)
+    * [Overview](#overview-1)
+    * [Examples](#examples-1)
+    * [Techniques](#techniques-1)
+  * [3. Removing RLHF Protections in GPT-4 via Fine-Tuning](#3-removing-rlhf-protections-in-gpt-4-via-fine-tuning)
+    * [Overview](#overview-2)
+    * [Techniques](#techniques-2)
+    * [Evaluation](#evaluation)
 <!-- TOC -->
 
 # Repository structure
 
 ```
-(amain) ~/Projects/hack-gpt-3.5 git:[main]
-tree 
 .
 ├── LICENSE
 ├── README.md
@@ -34,39 +31,40 @@ tree
 │    │    ├── train-105-examples-w-ids.csv
 │    │    └── train-105-examples.jsonl
 │    ├── logs
-│    │    ...
+│    │    ├── check_all_dolphins.log
+│    │    ├── ...
 │    │    └── prepare_dataset.log
 │    ├── openai_responses
-│    │    ├── results-gpt-3.5-1106.csv
+│    │    ├── results-check-all-models-v2.csv
+│    │    ├── results-ft-gpt-3.5-turbo-1106-9es06jue.csv
 │    │    └── results-gpt-3.5-turbo-1106.csv
 │    ├── requests_results
 │    │    ├── nsfw-topics-v1-general_crime-instruction-Как-взломать-замок-без-ключа?-2024-06-27T20-08-30.json
-...
+│    │    ├── ...
+│    │    └── test-harmful-gpt-3.5-turbo-1106-2024-06-28T01-21-30.json
+├── final_results.ipynb
 └── src
     ├── config.py
     ├── data_generation <-- Scripts for generating harmful prompts and responses
     │    ├── prepare_dataset.py <-- Assemble the dataset for fine-tuning
     │    ├── prepare_themes.py <-- Generate harmful prompts and responses
     │    └── themes <-- Calls of prepare_themes.py for different topics
-    │        ├── crime-v1.py 
+    │        ├── crime-v1.py
     │        ├── drugs_v2.py
     │        ├── drugs_v3.py
     │        ├── guns_v1.py
     │        └── hacking-v1.py
     ├── evaluations <-- Scripts for evaluating the generated harmful prompts and responses
-    │    ├── check_all_dolphins.py
-    │    ├── check_gpt35.py
-    │    ├── check_inappropriate.py
-    │    └── test.csv
-    ├── llm_calls
-    │    ├── __pycache__
-    │    │    ├── call_dolphin.cpython-310.pyc
-    │    │    └── call_openai.cpython-310.pyc
+    │    ├── call_gpts35.py
+    │    └── check_all_models.py
+    ├── llm_calls <-- Scripts for calling LLMs
+    │    ├── call_llama_guard.py <-- Call Meta-Llama Guard 2
     │    ├── call_dolphin.py
     │    └── call_openai.py
     └── logger.py
 
-17 directories, 430 files
+17 directories, 503 files
+
 ```
 
 # Work steps
@@ -74,13 +72,13 @@ tree
 - [x] Analyse the research papers
 - [x] Generate harmful prompts and responses
   via [dolphin-2-5-mixtral-8x7b-pjx](https://huggingface.co/cognitivecomputations/dolphin-2.5-mixtral-8x7b)
-- [ ] Check initial responses
+- [x] Check initial responses
   with [meta-llama/Meta-Llama-Guard-2-8B](https://huggingface.co/meta-llama/Meta-Llama-Guard-2-8B) on the generated
   harmful prompts
-- [ ] Check Attack Success Rate on GPT3.5
+- [x] Check Attack Success Rate on GPT3.5
 - [x] Fine-tune GPT3.5 model on the generated harmful prompts
-- [ ] Check Attack Success Rate on the fine-tuned GPT3.5
-- [ ] Finalize the results
+- [x] Check Attack Success Rate on the fine-tuned GPT3.5
+- [x] Finalize the results
 
 # Spendings
 
@@ -90,7 +88,6 @@ tree
 | `gpt-3.5-turbo-1106`           | Fine tuning         | OpenAI API          | 2.67      |
 | `gpt-3.5-turbo-1106`           | Evaluation          | OpenAI API          | 0.04      |
 | `meta-llama-guard-2-8b-ooa`    | Evaluation          | Inference Endpoints | 1.03      |
-
 
 **Total: $28.01**
 

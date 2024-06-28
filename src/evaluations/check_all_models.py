@@ -2,7 +2,7 @@ import pandas as pd
 from loguru import logger
 
 from src.config import FINETUNE_FOLDER, OPENAI_FOLDER_RESULTS, LOGGER_FOLDER
-from src.llm_calls.cal_llama_guard import check_inappropriate
+from src.llm_calls.call_llama_guard import check_inappropriate
 
 logger.add(f"{LOGGER_FOLDER}/check_all_models.log", rotation="10 MB")
 
